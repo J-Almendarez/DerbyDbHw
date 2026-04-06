@@ -16,36 +16,38 @@ import java.sql.Statement;
  * @author MoaathAlrajab
  */
 public class ConnDbOps {
-    final String MYSQL_SERVER_URL = "jdbc:mysql://localhost/";
-    final String DB_URL = "jdbc:mysql://localhost/DBname";
-    final String USERNAME = "admin";
-    final String PASSWORD = "password";
+    // Embedded Derby URL with auto-create
+    final String MYSQL_SERVER_URL = "jdbc:derby:DBname;create=true";
+    final String DB_URL = "jdbc:derby:DBname;create=true";
+
     
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
 
-        //Class.forName("com.mysql.jdbc.Driver");
-        try {
-            //First, connect to MYSQL server and create the database if not created
-            Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
-            Statement statement = conn.createStatement();
-            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS DBname");
-            statement.close();
-            conn.close();
 
-            //Second, connect to the database and create the table "users" if cot created
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            statement = conn.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS users ("
-                    + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
+        try {
+            // Connect to embedded Derby database (created automatically via ;create=true)
+            Connection conn = DriverManager.getConnection(DB_URL);
+            Statement statement = conn.createStatement();
+
+            // Create the "users" table if it doesn't exist (Derby syntax)
+            String sql = "CREATE TABLE users ("
+                    + "id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,"
                     + "name VARCHAR(200) NOT NULL,"
                     + "email VARCHAR(200) NOT NULL UNIQUE,"
                     + "phone VARCHAR(200),"
                     + "address VARCHAR(200),"
                     + "password VARCHAR(200) NOT NULL"
                     + ")";
-            statement.executeUpdate(sql);
+            try {
+                statement.executeUpdate(sql);
+            } catch (SQLException ex) {
+                // Table already exists (Derby error code 'X0Y32')
+                if (!ex.getSQLState().equals("X0Y32")) {
+                    throw ex;
+                }
+            }
 
             //check if we have users in the table users
             statement = conn.createStatement();
@@ -72,7 +74,7 @@ public class ConnDbOps {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL);
             String sql = "SELECT * FROM users WHERE name = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, name);
@@ -99,7 +101,7 @@ public class ConnDbOps {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL);
             String sql = "SELECT * FROM users ";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
@@ -125,7 +127,7 @@ public class ConnDbOps {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL);
             String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, name);
