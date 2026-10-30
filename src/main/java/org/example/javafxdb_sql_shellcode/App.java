@@ -20,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("splash_screen"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -66,16 +66,18 @@ public class App extends Application {
                     break;
 
                 case 'i':
+                    // Changed from next to nextLine so it captures the full input
+                    scan.nextLine();
                     System.out.print("Enter Name: ");
-                    String name = scan.next();
+                    String name = scan.nextLine();
                     System.out.print("Enter Email: ");
-                    String email = scan.next();
+                    String email = scan.nextLine();
                     System.out.print("Enter Phone: ");
-                    String phone = scan.next();
+                    String phone = scan.nextLine();
                     System.out.print("Enter Address: ");
-                    String address = scan.next();
+                    String address = scan.nextLine();
                     System.out.print("Enter Password: ");
-                    String password = scan.next();
+                    String password = scan.nextLine();
                     cdbop.insertUser(name, email, phone, address, password); //Your insertUser method
                     break;
                 case 'q':

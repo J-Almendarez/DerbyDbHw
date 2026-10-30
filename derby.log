@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Oct 30 18:15:24 EDT 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-01a1-8ee1-c9a2-00001f1aedc8 
+on database directory C:\Users\JeanC\OneDrive\Desktop\Fall 2026\JavaFxDB_SQL_ShellCode3_2\DBname with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1e80bfe8 
+Loaded from file:/C:/Users/JeanC/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.9+7-LTS-338
+user.dir=C:\Users\JeanC\OneDrive\Desktop\Fall 2026\JavaFxDB_SQL_ShellCode3_2
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
