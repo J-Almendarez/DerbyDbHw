@@ -1,0 +1,19 @@
+/* DARK theme */
+.root {
+    -app-bg:     #1b1e23;
+    -app-panel:  #23272e;
+    -app-field:  #2b3038;
+    -app-text:   #e6e8eb;
+    -app-muted:  #9aa3ad;
+    -app-border: #3a404a;
+    -app-accent: #2fa37a;
+
+
+    -fx-base: #2b3038;
+    -fx-background: #1b1e23;
+    -fx-control-inner-background: #262a31;
+    -fx-control-inner-background-alt: #2b3038;
+    -fx-accent: #2fa37a;
+    -fx-focus-color: #2fa37a;
+    -fx-faint-focus-color: transparent;
+}

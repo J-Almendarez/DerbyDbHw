@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Login page -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane styleClass="splash-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.example.javafxdb_sql_shellcode.LoginController">
+   <VBox styleClass="card" maxWidth="360" maxHeight="-Infinity" spacing="10">
+      <HBox alignment="CENTER">
+         <ImageView fitHeight="70" fitWidth="70" preserveRatio="true">
+            <image><Image url="@images/suny_farmingdale.png"/></image>
+         </ImageView>
+      </HBox>
+      <Label text="Sign in" styleClass="title"/>
+      <Label text="Welcome back! Enter your details." styleClass="muted"/>
+
+      <Label text="Email" styleClass="field-label"/>
+      <TextField fx:id="emailField" promptText="name@farmingdale.edu"/>
+      <Label text="Password" styleClass="field-label"/>
+      <PasswordField fx:id="passwordField" promptText="Password" onAction="#onLogin"/>
+      <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+      <!-- defaultButton = pressing Enter clicks it -->
+      <Button text="Sign in" onAction="#onLogin" defaultButton="true" styleClass="primary-btn" maxWidth="Infinity"/>
+      <HBox alignment="CENTER" spacing="2">
+         <Label text="No account?" styleClass="muted"/>
+         <Hyperlink text="Create one" onAction="#goToRegister"/>
+      </HBox>
+      <Button text="Switch light / dark theme" onAction="#toggleTheme" styleClass="secondary-btn" maxWidth="Infinity"/>
+   </VBox>
+</StackPane>

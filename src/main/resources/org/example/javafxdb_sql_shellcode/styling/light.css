@@ -1,0 +1,15 @@
+/* LIGHT theme */
+.root {
+    -app-bg:     #f2f4f6;
+    -app-panel:  #ffffff;
+    -app-field:  #ffffff;
+    -app-text:   #1f2933;
+    -app-muted:  #6b7785;
+    -app-border: #d5dbe1;
+    -app-accent: #00664f;   /* Farmingdale green */
+
+
+    -fx-accent: #00664f;
+    -fx-focus-color: #00664f;
+    -fx-faint-focus-color: transparent;
+}
