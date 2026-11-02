@@ -1,26 +1,86 @@
-.nav_btn {
-    -fx-background-color:#444;
-    -fx-cursor:hand;
-    -fx-font-family:"Arial";
-    -fx-font-size:14px;
-    -fx-text-alignment: center;
-    -fx-text-fill:#fff;
-    -fx-alignment:CENTER;
-    -fx-background-radius:10;
-    -fx-pref-width:150px;
-    -fx-pref-height:40px;
+/* style.css = layout and shapes for the whole app.*/
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 13px;
+    -fx-background-color: -app-bg;
 }
 
-.left_pane {
-    -fx-background-color:#f88;
-    -fx-pref-width:150px;
-    -fx-pref-height:600px;
+.label { -fx-text-fill: -app-text; }
+
+/* Big headings and grey helper text */
+.title       { -fx-font-size: 22px; -fx-font-weight: bold; }
+.muted       { -fx-text-fill: -app-muted; }
+.field-label { -fx-text-fill: -app-muted; -fx-font-size: 11px; -fx-font-weight: bold; }
+.error-label { -fx-text-fill: #d9534f; -fx-font-size: 11px; }
+
+/* Background of the splash / login / registration pages */
+.splash-root { -fx-background-color: -app-bg; }
+
+/* White (or dark) rounded box used by login and registration */
+.card {
+    -fx-background-color: -app-panel;
+    -fx-background-radius: 14;
+    -fx-border-color: -app-border;
+    -fx-border-radius: 14;
+    -fx-padding: 28;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 20, 0, 0, 4);
 }
 
-.bottom_pane {
-    -fx-background-color:#f88;
+/* Left panel on the main screen (picture + form) */
+.sidebar {
+    -fx-background-color: -app-panel;
+    -fx-border-color: transparent -app-border transparent transparent;
+    -fx-padding: 18;
 }
-.profile_pic{
-    -fx-stroke: #dedddc;
-    -fx-stroke-width: 2;
+
+/* Text inputs */
+.text-field, .password-field {
+    -fx-background-color: -app-field;
+    -fx-border-color: -app-border;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: -app-text;
+    -fx-prompt-text-fill: -app-muted;
+    -fx-padding: 6 8;
 }
+.text-field:focused, .password-field:focused { -fx-border-color: -app-accent; }
+
+/* Added by the controller when a field fails its RegEx check */
+.text-field.error { -fx-border-color: #d9534f; -fx-border-width: 1.5; }
+
+/* Buttons */
+.button { -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 8 14; -fx-font-weight: bold; }
+.primary-btn   { -fx-background-color: -app-accent; -fx-text-fill: white; }
+.danger-btn    { -fx-background-color: #d9534f; -fx-text-fill: white; }
+.secondary-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: -app-border;
+    -fx-border-radius: 6;
+    -fx-text-fill: -app-text;
+}
+.primary-btn:hover, .danger-btn:hover { -fx-opacity: 0.88; }
+.secondary-btn:hover { -fx-background-color: -app-field; }
+.button:disabled { -fx-opacity: 0.4; }
+
+.hyperlink { -fx-text-fill: -app-accent; }
+
+/* Table */
+.table-view {
+    -fx-background-color: -app-field;
+    -fx-border-color: -app-border;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+/* Bottom status bar */
+.status-bar {
+    -fx-background-color: -app-panel;
+    -fx-border-color: -app-border transparent transparent transparent;
+    -fx-padding: 5 14;
+}
+.status-bar .label { -fx-text-fill: -app-muted; -fx-font-size: 12px; }
+
+/* Selected table row uses the theme's accent color */
+.table-row-cell:filled:selected { -fx-background-color: -app-accent; }
+.table-row-cell:filled:selected .table-cell { -fx-text-fill: white; }

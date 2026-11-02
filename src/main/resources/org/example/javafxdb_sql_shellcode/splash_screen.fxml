@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Splash screen -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-
-<GridPane  xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.SplashScreenController">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <children>
-       <ImageView fitHeight="293.0" fitWidth="332.0" onMouseClicked="#clickme" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-           <image>
-               <Image url="@images/suny_farmingdale.png" />
-           </image>
-       </ImageView>
-   </children>
-</GridPane>
+<VBox alignment="CENTER" spacing="16" styleClass="splash-root" onMouseClicked="#clickme"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.javafxdb_sql_shellcode.SplashScreenController">
+   <ImageView fitHeight="260" fitWidth="260" preserveRatio="true">
+      <image><Image url="@images/suny_farmingdale.png"/></image>
+   </ImageView>
+   <Label text="FSC Student Records" styleClass="title"/>
+   <ProgressIndicator prefWidth="28" prefHeight="28"/>
+   <Label text="Loading... (click to skip)" styleClass="muted"/>
+</VBox>
